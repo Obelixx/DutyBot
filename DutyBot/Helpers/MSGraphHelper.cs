@@ -34,8 +34,9 @@ namespace DutyBot.Helpers
         {
             var userSearchResult = await client.Users.GetAsync((req) =>
             {
-                //req.QueryParameters.Select = new string[] { "displayName", "userPrincipalName", "id" };
-                req.QueryParameters.Filter = $"name eq {name}')";
+                req.QueryParameters.Select = new string[] { "displayName", "userPrincipalName", "id" };
+                req.QueryParameters.Filter = $"displayName eq '{name}' or givenName eq '{name}' or surname eq '{name}'";
+                req.QueryParameters.Count = true;
             });
 
             if (userSearchResult == null || userSearchResult.Value == null || userSearchResult.Value.Count == 0)

@@ -2,11 +2,19 @@
 
 namespace DutyBot.Models
 {
-    public class DutyModel: IComparable<DutyModel>, IComparer<DutyModel>
+    public class DutyModel : IComparable<DutyModel>, IComparer<DutyModel>
     {
+        public DutyModel() { }
+
+        public DutyModel(DateTime date, string name)
+        {
+            this.Date = date;
+            this.Name = name;
+        }
+
         [DisplayFormat(DataFormatString = "yyyy-MM-dd")]
         public DateTime Date { get; set; }
-        
+
         public string Name { get; set; }
 
         public int Compare(DutyModel x, DutyModel y)

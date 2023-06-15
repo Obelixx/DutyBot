@@ -8,6 +8,8 @@ namespace DutyBot.Common.Contracts
 
         DutyModel DutyToday(string chatId);
 
+        IEnumerable<DutyModel> GetAllDuties(string chatId);
+
         DutyModel GetDuty(string chatId, DateTime date);
 
         void SaveDuty(string chatId, DutyModel duty);

@@ -53,6 +53,16 @@ namespace DutyBot.Helpers
             return GetDuty(chatId, DateTime.UtcNow.Date);
         }
 
+        public IEnumerable<DutyModel> GetAllDuties(string chatId)
+        {
+            if(inmemoryStorage.ContainsKey(chatId))
+            {
+                return inmemoryStorage[chatId];
+            }
+
+            return Enumerable.Empty<DutyModel>();
+        }
+
         /// <summary>
         /// Delete old duties.
         /// </summary>

@@ -23,11 +23,10 @@ namespace DutyBot
         {
             if (turnContext.Activity.Type.Contains(ActivityTypes.Message))
             {
-
                 var handlers = serviceProvider.GetServices<IMessageActivityHelper>();
                 foreach (var handler in handlers)
                 {
-                    handler.HandleMessageTurnContext(turnContext, cancellationToken);
+                    await handler.HandleMessageTurnContext(turnContext, cancellationToken);
                 }
             }
         }
