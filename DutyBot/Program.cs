@@ -1,6 +1,7 @@
 using Azure.Identity;
 
 using DutyBot;
+using DutyBot.BotActivityHandlers;
 using DutyBot.Common;
 using DutyBot.Common.Contracts;
 using DutyBot.Helpers;
@@ -32,12 +33,18 @@ builder.Configuration[Configurations.TENANT_ID] = builder.Configuration.GetSecti
 // Create the Bot Framework Authentication to be used with the Bot Adapter.
 builder.Services.AddSingleton<BotFrameworkAuthentication, ConfigurationBotFrameworkAuthentication>();
 
+builder.Services.AddSingleton<IDutyStorage, DutyStorage>();
+
+// register message handlers
+builder.Services.AddScoped<IMessageActivityHelper, MessageActivityWithDuty>();
+
 // Create the Cloud Adapter with error handling enabled.
 // Note: some classes expect a BotAdapter and some expect a BotFrameworkHttpAdapter, so
 // register the same adapter instance for all types.
 builder.Services.AddSingleton<CloudAdapter, AdapterWithErrorHandler>();
 builder.Services.AddSingleton<IBotFrameworkHttpAdapter>(sp => sp.GetService<CloudAdapter>());
 builder.Services.AddSingleton<BotAdapter>(sp => sp.GetService<CloudAdapter>());
+
 
 // Create the Conversation with notification feature enabled.
 builder.Services.AddSingleton(sp =>

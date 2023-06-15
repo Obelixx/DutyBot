@@ -16,11 +16,12 @@ namespace DutyBot
     /// </summary>
     public class TeamsBot : TeamsActivityHandler
     {
-        
+        private readonly IServiceProvider serviceProvider;
         private readonly IMSGraphHelper msGraph;
 
-        public TeamsBot(IMSGraphHelper msGraph)
+        public TeamsBot(IServiceProvider serviceProvider,IMSGraphHelper msGraph)
         {
+            this.serviceProvider = serviceProvider;
             this.msGraph = msGraph;
         }
 
@@ -37,7 +38,7 @@ namespace DutyBot
                     term = term.Split("who is ", StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries).FirstOrDefault();
                     if (term != null)
                     {
-                        var user = await msGraph.GetUserByNameAsync(term);
+                        var user = await msGraph.GetUserByPrincipalNameAsync(term);
                         if (user != null)
                         {
                             var ca = new ChannelAccount(user.Id, user.DisplayName, "user", user.SecurityIdentifier);
@@ -49,10 +50,11 @@ namespace DutyBot
                     }
                 }
 
-                // todo: move to DI
-                await new MessageActivityWithDuty().HandleMessageTurnContext(turnContext, cancellationToken);
-                await new MessageActivityWithMetionHelper().HandleMessageTurnContext(turnContext, cancellationToken);
-
+                var handlers = serviceProvider.GetServices<IMessageActivityHelper>();
+                foreach (var handler in handlers)
+                {
+                    handler.HandleMessageTurnContext(turnContext, cancellationToken);
+                }
             }
         }
 
