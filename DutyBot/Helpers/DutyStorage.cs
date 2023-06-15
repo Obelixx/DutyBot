@@ -50,7 +50,7 @@ namespace DutyBot.Helpers
         public DutyModel DutyToday(string chatId)
         {
             // TODO: think about timezones
-            return GetDuty(chatId, DateTime.UtcNow.Date);
+            return GetDuty(chatId, DateTime.Now.Date);
         }
 
         public IEnumerable<DutyModel> GetAllDuties(string chatId)
