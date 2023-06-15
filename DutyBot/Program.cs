@@ -36,7 +36,10 @@ builder.Services.AddSingleton<BotFrameworkAuthentication, ConfigurationBotFramew
 builder.Services.AddSingleton<IDutyStorage, DutyStorage>();
 
 // register message handlers
+// TODO: use reflection to look in namespace DutyBot.BotActivityHandlers
 builder.Services.AddScoped<IMessageActivityHelper, MessageActivityWithDuty>();
+builder.Services.AddScoped<IMessageActivityHelper, MessageActivityWithMetionHelper>();
+builder.Services.AddScoped<IMessageActivityHelper, MessageActivityWithWhoIs>();
 
 // Create the Cloud Adapter with error handling enabled.
 // Note: some classes expect a BotAdapter and some expect a BotFrameworkHttpAdapter, so

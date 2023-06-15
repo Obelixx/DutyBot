@@ -3,7 +3,6 @@ using DutyBot.Helpers;
 
 using Microsoft.Bot.Builder;
 using Microsoft.Bot.Schema;
-using Microsoft.Graph.Models.TermStore;
 
 namespace DutyBot.BotActivityHandlers
 {
