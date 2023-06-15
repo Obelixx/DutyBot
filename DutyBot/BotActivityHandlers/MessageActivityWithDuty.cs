@@ -192,12 +192,13 @@ namespace DutyBot.BotActivityHandlers
                     }
                     else
                     {
-                        // if not found just replay wiht the name
+                        // if not found just replay whth the name
                         await turnContext.SendActivityAsync(string.Format(DutyMessageFormat, dutyToday.Name), cancellationToken: cancellationToken);
                     }
                 }
                 catch (Exception ex)
                 {
+                    // on error just replay whth the name
                     await turnContext.SendActivityAsync(string.Format(DutyMessageFormat, dutyToday.Name), cancellationToken: cancellationToken);
                 }
             }
