@@ -1,0 +1,61 @@
+{
+  "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.14/MicrosoftTeams.schema.json",
+  "manifestVersion": "1.14",
+  "version": "1.0.0",
+  "id": "{{state.fx-resource-appstudio.teamsAppId}}",
+  "packageName": "com.microsoft.teams.extension",
+  "developer": {
+    "name": "Aleksander Angelov",
+    "websiteUrl": "https://sasho.top",
+    "privacyUrl": "https://www.example.com/termofuse",
+    "termsOfUseUrl": "https://www.example.com/privacy"
+  },
+  "icons": {
+    "color": "{{config.manifest.icons.color}}",
+    "outline": "{{config.manifest.icons.outline}}"
+  },
+  "name": {
+    "short": "{{config.manifest.appName.short}}",
+    "full": "{{config.manifest.appName.full}}"
+  },
+  "description": {
+    "short": "{{config.manifest.description.short}}",
+    "full": "{{config.manifest.description.full}}"
+  },
+  "accentColor": "#FFFFFF",
+  "webApplicationInfo": {
+    "id": "{{state.fx-resource-bot.botId}}",
+    "resource": "{{state.fx-resource-bot.siteEndpoint}}"
+  },
+  "authorization": {
+    "permissions": {
+      "resourceSpecific": [
+        {
+          "type": "Application",
+          "name": "ChatMessage.Read.Chat"
+        }
+      ]
+    }
+  },
+  "bots": [
+    {
+      "botId": "{{state.fx-resource-bot.botId}}",
+      "scopes": [
+        "team",
+        "groupchat"
+      ],
+      "supportsFiles": false,
+      "isNotificationOnly": false
+    }
+  ],
+  "composeExtensions": [],
+  "configurableTabs": [],
+  "staticTabs": [],
+  "permissions": [
+    "identity",
+    "messageTeamMembers"
+  ],
+  "validDomains": [
+    "{{state.fx-resource-bot.domain}}"
+  ]
+}

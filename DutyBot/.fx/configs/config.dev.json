@@ -1,0 +1,18 @@
+{
+  "$schema": "https://aka.ms/teamsfx-env-config-schema",
+  "description": "You can customize the TeamsFx config for different environments. Visit https://aka.ms/teamsfx-env-config to learn more about this.",
+  "manifest": {
+    "appName": {
+      "short": "DutyBot",
+      "full": "Duty Bot"
+    },
+    "description": {
+      "short": "Duty Bot - Who is on duty today?",
+      "full": "Duty Bot can notify users for their duty day from a predefined schedule."
+    },
+    "icons": {
+      "color": "resources/color.png",
+      "outline": "resources/outline.png"
+    }
+  }
+}

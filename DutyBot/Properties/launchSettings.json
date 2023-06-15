@@ -1,0 +1,43 @@
+{
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iis": {
+      "applicationUrl": "https://sasho.top",
+      "sslPort": 443
+    },
+    "launchBrowser": "false"
+  },
+  "profiles": {
+    "Microsoft Teams (browser)": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "launchUrl": "https://teams.microsoft.com/l/app/be067cfc-b49c-4ef3-923f-47d96cef5330?installAppPackage=true&webjoin=true&appTenantId=4f308981-debb-434e-ae25-12eb955b8a22&login_hint=obelixx@60lqnv.onmicrosoft.com",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "dotnetRunMessages": "true",
+      "applicationUrl": "https://sasho.top",
+      "hotReloadProfile": "aspnetcore"
+    },
+    "Start Project (not in Teams)": {
+      "commandName": "Project",
+      "dotnetRunMessages": "true",
+      "applicationUrl": "https://localhost:7130;http://localhost:5130",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "hotReloadProfile": "aspnetcore"
+    }
+    //"WSL": {
+    //  "commandName": "WSL2",
+    //  "launchBrowser": true,
+    //  "launchUrl": "https://teams.microsoft.com/l/app/be067cfc-b49c-4ef3-923f-47d96cef5330?installAppPackage=true&webjoin=true&appTenantId=4f308981-debb-434e-ae25-12eb955b8a22&login_hint=obelixx@60lqnv.onmicrosoft.com",
+    //  "environmentVariables": {
+    //    "ASPNETCORE_ENVIRONMENT": "Development",
+    //    "ASPNETCORE_URLS": "https://sasho.top"
+    //  },
+    //  "distributionName": ""
+    //}
+  }
+}
