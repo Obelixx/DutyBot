@@ -6,6 +6,8 @@ This is a chat bot for Microsoft Teams build during the hackathon: **[HackTogeth
 
 It is a simple bot designed to help in a group chat or a team in side Microsoft Teams app. It can keep (in-memory for now) a schedule of duties. And when a keyword is detected in the chat it will check the schedule and plug in the conversation.  
 
+Demo Video: [MS Teams - Duty Bot](https://www.youtube.com/watch?v=px7c94bp1nk)
+
 Here are the features that are currently implemented:
 * Input schedule with markdown:
 
